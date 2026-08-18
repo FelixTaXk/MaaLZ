@@ -5,36 +5,14 @@
             "filePath": "E:\\MaaLZ\\assets\\resource\\pipeline\\easyTravel.json",
             "filename": "easyTravel",
             "isDeleted": true,
-            "lastSyncTime": 1787034441428,
+            "lastSyncTime": 1787035885940,
             "prefix": "",
             "savedViewport": {
-                "x": -1721,
-                "y": 486,
-                "zoom": 0.8
+                "x": -1545,
+                "y": 190,
+                "zoom": 0.94
             },
             "version": "v1.7.6"
-        }
-    },
-    "Traveling": {
-        "$__mpe_code": {
-            "position": {
-                "x": 2138,
-                "y": -247
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "easyTravel"
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "easyTravel/traveling.png"
-                ]
-            },
-            "type": "TemplateMatch"
         }
     },
     "checkBox": {
@@ -81,8 +59,8 @@
     "checkSpacialTravelBox": {
         "$__mpe_code": {
             "position": {
-                "x": 2884,
-                "y": 238
+                "x": 2678,
+                "y": 270
             }
         },
         "next": [
@@ -99,6 +77,26 @@
             "param": {
                 "template": [
                     "easyTravel/specialTravelBoxConfirm.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "checkTravelStatus": {
+        "$__mpe_code": {
+            "position": {
+                "x": 1849,
+                "y": -79
+            }
+        },
+        "next": [
+            "traveling",
+            "travel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "home.png"
                 ]
             },
             "type": "TemplateMatch"
@@ -126,28 +124,6 @@
             "type": "TemplateMatch"
         }
     },
-    "confirmSpecialTravel": {
-        "$__mpe_code": {
-            "position": {
-                "x": 2637,
-                "y": 236
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "checkSpacialTravelBox"
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "easyTravel/specialTravelBox.png"
-                ]
-            },
-            "type": "TemplateMatch"
-        }
-    },
     "easyTravel": {
         "$__mpe_code": {
             "position": {
@@ -164,12 +140,11 @@
         ],
         "recognition": {
             "param": {
-                "template": [
-                    "easyTravel/easyTravel.png",
-                    "easyTravel/easyTravel2.png"
+                "expected": [
+                    "一键游历"
                 ]
             },
-            "type": "TemplateMatch"
+            "type": "OCR"
         }
     },
     "emptyClose": {
@@ -216,8 +191,8 @@
     "huo": {
         "$__mpe_code": {
             "position": {
-                "x": 3142,
-                "y": 828
+                "x": 2992,
+                "y": 852
             }
         },
         "action": {
@@ -239,7 +214,7 @@
     "jin": {
         "$__mpe_code": {
             "position": {
-                "x": 3144,
+                "x": 2981,
                 "y": -74
             }
         },
@@ -262,8 +237,8 @@
     "lei": {
         "$__mpe_code": {
             "position": {
-                "x": 3401,
-                "y": 229
+                "x": 3290,
+                "y": 232
             }
         },
         "action": {
@@ -285,8 +260,8 @@
     "mu": {
         "$__mpe_code": {
             "position": {
-                "x": 3147,
-                "y": 221
+                "x": 2981,
+                "y": 233
             }
         },
         "action": {
@@ -308,8 +283,8 @@
     "shui": {
         "$__mpe_code": {
             "position": {
-                "x": 3145,
-                "y": 522
+                "x": 2987,
+                "y": 545
             }
         },
         "action": {
@@ -331,13 +306,16 @@
     "specialTravel": {
         "$__mpe_code": {
             "position": {
-                "x": 2385,
-                "y": 256
+                "x": 2392,
+                "y": 251
             }
         },
-        "enabled": false,
+        "action": {
+            "type": "Click"
+        },
+        "enabled": true,
         "next": [
-            "confirmSpecialTravel"
+            "checkSpacialTravelBox"
         ],
         "recognition": {
             "param": {
@@ -373,8 +351,8 @@
     "startSpecialTravel": {
         "$__mpe_code": {
             "position": {
-                "x": 3671,
-                "y": 243
+                "x": 3591,
+                "y": 255
             }
         },
         "action": {
@@ -395,8 +373,8 @@
     "ti": {
         "$__mpe_code": {
             "position": {
-                "x": 3408,
-                "y": 833
+                "x": 3293,
+                "y": 851
             }
         },
         "action": {
@@ -418,8 +396,8 @@
     "travel": {
         "$__mpe_code": {
             "position": {
-                "x": 2137,
-                "y": 6
+                "x": 2131,
+                "y": 5
             }
         },
         "action": {
@@ -431,11 +409,11 @@
         ],
         "recognition": {
             "param": {
-                "template": [
-                    "easyTravel/travel.png"
+                "expected": [
+                    "游历"
                 ]
             },
-            "type": "TemplateMatch"
+            "type": "OCR"
         }
     },
     "travelTips": {
@@ -457,10 +435,32 @@
             "type": "TemplateMatch"
         }
     },
+    "traveling": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2137,
+                "y": -234
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "easyTravel"
+        ],
+        "recognition": {
+            "param": {
+                "expected": [
+                    "游历中"
+                ]
+            },
+            "type": "OCR"
+        }
+    },
     "tu": {
         "$__mpe_code": {
             "position": {
-                "x": 3401,
+                "x": 3284,
                 "y": -72
             }
         },
@@ -483,8 +483,8 @@
     "xie": {
         "$__mpe_code": {
             "position": {
-                "x": 3401,
-                "y": 524
+                "x": 3290,
+                "y": 542
             }
         },
         "action": {

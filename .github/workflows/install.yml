@@ -4,8 +4,13 @@ env:
   # 版本控制：
   # - 设置 VERSION 为空字符串时，下载 latest 版本
   # - 设置 VERSION 为具体版本号时（如 v1.2.3），下载指定版本
+  # 注：pip 的 MaaFw 包与 MaaFramework 原生 release 同版本号发布，
+  # 二者同时浮动即天然对齐，无需手工同步双值
   MAAFW_VERSION: ""
   MFAA_VERSION: ""
+  # 内嵌便携 Python 相关版本：
+  # - EMBED_PYTHON_VERSION：嵌入式 Python 发行版版本
+  EMBED_PYTHON_VERSION: "3.12.10"
 
 on:
   push:
@@ -119,6 +124,23 @@ jobs:
         run: |
           rm -rf MFA/runtimes
       
+      - name: Bundle embedded Python (Windows)
+        if: matrix.os == 'win' && matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          mkdir -p install/python
+          curl -fL "https://www.python.org/ftp/python/${{ env.EMBED_PYTHON_VERSION }}/python-${{ env.EMBED_PYTHON_VERSION }}-embed-amd64.zip" -o /tmp/embed-python.zip
+          unzip -q /tmp/embed-python.zip -d install/python
+          PYTAG=$(echo "${{ env.EMBED_PYTHON_VERSION }}" | cut -d. -f1,2 | tr -d .)
+          PYMINOR=python${PYTAG}
+          python3 -m pip install MaaFw \
+            --target install/python/Lib/site-packages \
+            --platform win_amd64 --python-version ${PYTAG} \
+            --implementation cp --abi cp${PYTAG} --abi none \
+            --only-binary=:all:
+          printf '%s.zip\n.\nLib/site-packages\nimport site\n' "$PYMINOR" > "install/python/${PYMINOR}._pth"
+          du -sh install/python
+
       - name: Install
         shell: bash
         run: |

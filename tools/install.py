@@ -118,6 +118,15 @@ def install_resource():
 
     interface["version"] = version
 
+    # 仅当内嵌便携 Python 确实存在时才改写 child_exec（相对安装根目录解析）；
+    # 否则保持源文件原值 "python"，回退系统 Python，与 check_embedded_python 的警告承诺一致
+    if (
+        os_name == "win"
+        and "agent" in interface
+        and (install_path / "python" / "python.exe").exists()
+    ):
+        interface["agent"]["child_exec"] = "python/python.exe"
+
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
@@ -179,11 +188,39 @@ def rename_executable():
     print(f"Renamed {src.name} to {dst.name}")
 
 
+def check_embedded_python():
+    if os_name != "win":
+        return
+
+    python_exe = install_path / "python" / "python.exe"
+    maa_pkg = install_path / "python" / "Lib" / "site-packages" / "maa" / "__init__.py"
+
+    if python_exe.exists() and maa_pkg.exists():
+        print(f"Embedded Python found: {python_exe}")
+        return
+
+    # 缺失时仅警告不退出：本地开发允许缺失（回退系统 Python）；
+    # CI 由 Bundle embedded Python step 保证，该 step 失败会直接中断构建
+    missing = [p for p in (python_exe, maa_pkg) if not p.exists()]
+    print("=" * 72)
+    print("WARNING: Embedded Python is missing in the install directory!")
+    for p in missing:
+        print(f"  Missing: {p}")
+    print("  The release package will fall back to the user's system Python.")
+    print("-" * 72)
+    print("警告：安装目录中缺少内嵌便携 Python！")
+    for p in missing:
+        print(f"  缺失：{p}")
+    print("  发行包将依赖用户系统的 Python 运行。")
+    print("=" * 72)
+
+
 if __name__ == "__main__":
     install_deps()
     install_resource()
     install_chores()
     install_agent()
     rename_executable()
+    check_embedded_python()
 
     print(f"Install to {install_path} successfully.")

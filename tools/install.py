@@ -1,7 +1,7 @@
-from pathlib import Path
-
+import os
 import shutil
 import sys
+from pathlib import Path
 
 try:
     import jsonc
@@ -132,6 +132,12 @@ def install_chores():
         install_path,
     )
 
+    logo = working_dir / "logo.ico"
+    if logo.exists():
+        shutil.copy2(logo, install_path / "logo.ico")
+        os.makedirs(install_path / "Assets", exist_ok=True)
+        shutil.copy2(logo, install_path / "Assets" / "logo.ico")
+
 
 def install_agent():
     shutil.copytree(
@@ -141,10 +147,43 @@ def install_agent():
     )
 
 
+def rename_executable():
+    if os_name == "android":
+        return
+
+    if os_name == "win":
+        src = install_path / "MFAAvalonia.exe"
+        dst = install_path / "MaaLZ.exe"
+    else:
+        src = install_path / "MFAAvalonia"
+        dst = install_path / "MaaLZ"
+
+    # 先校验 dll 存在性，再执行改名，避免半改名状态
+    # （不使用 assert：python -O 下会被剥离）
+    if not (install_path / "MFAAvalonia.dll").exists():
+        print(f"Error: MFAAvalonia.dll not found in {install_path}, cannot rename the executable.")
+        print("错误：安装目录中缺少 MFAAvalonia.dll，无法完成可执行文件改名。")
+        sys.exit(1)
+
+    if not src.exists():
+        print(f"Skip renaming: {src} not found.")
+        return
+
+    try:
+        src.replace(dst)
+    except OSError as e:
+        print(f"Error: failed to rename '{src}' to '{dst}': {e}")
+        print(f"错误：将 '{src}' 改名为 '{dst}' 失败：{e}")
+        sys.exit(1)
+
+    print(f"Renamed {src.name} to {dst.name}")
+
+
 if __name__ == "__main__":
     install_deps()
     install_resource()
     install_chores()
     install_agent()
+    rename_executable()
 
     print(f"Install to {install_path} successfully.")

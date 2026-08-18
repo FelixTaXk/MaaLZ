@@ -10,7 +10,7 @@
     "license": "MIT",
     "welcome": "首次使用！欢迎使用 MaaLZ!",
     // 填写项目地址和版本号可实现自动更新功能
-    "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
+    "github": "https://github.com/FelixTaXk/MaaLZ",
     "version": "v0.0.1.5",
     "icon": "logo.ico",
     // Mirror酱为第三方分发服务，新项目默认关闭

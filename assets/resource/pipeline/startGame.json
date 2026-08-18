@@ -1,25 +1,118 @@
 {
-    "$startGame": {
+    "$__mpe_config_startGame": {
         "$__mpe_code": {
             "coordinateMode": "absolute-v1",
+            "filePath": "E:\\MaaLZ\\assets\\resource\\pipeline\\startGame.json",
             "filename": "startGame",
+            "isDeleted": true,
+            "isModifiedExternally": false,
+            "lastSyncTime": 1787031874345,
             "prefix": "",
             "savedViewport": {
-                "x": -1309,
-                "y": 273,
+                "x": 254,
+                "y": 213,
                 "zoom": 1
             },
             "version": "v1.7.6"
         }
     },
-    "startGame": {
+    "adver": {
+        "$__mpe_code": {
+            "position": {
+                "x": 652,
+                "y": 13
+            }
+        },
+        "next": [
+            "closeAdver"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "startGame/adver/BHXZ-adver.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "closeAdver": {
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": 13
+            }
+        },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "home"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "startGame/adver/BHXZ-close.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "home": {
+        "$__mpe_code": {
+            "position": {
+                "x": 1292,
+                "y": 66
+            }
         },
         "recognition": {
             "param": {
                 "template": [
-                    "游戏图标.png"
+                    "home.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "intoGame": {
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 62
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "adver",
+            "home"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "startGame/startGame.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "startGame": {
+        "$__mpe_code": {
+            "position": {
+                "x": 12,
+                "y": 47
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "intoGame"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "startGame/gameIcon.png"
                 ]
             },
             "type": "TemplateMatch"

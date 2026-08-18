@@ -41,122 +41,252 @@
         {
             "name": "一键游历",
             "entry": "easyTravel",
-            "description": "自动一键游历"
-        },
-        {
-            "name": "一键收菜",
-            "entry": "easyHarvest",
-            "description": "自动一键收菜"
-        },
-        {
-            "name": "一键探险",
-            "entry": "easyAdventure",
-            "description": "自动一键探险",
+            "description": "自动一键游历",
             "option": [
-                "探险时间",
-                "探险属性"
-            ],
-            "pipeline_override": {}
+                "极品特招",
+                "特招属性"
+                // "执行次数"
+            ]
         }
+        // {
+        //     "name": "一键收菜",
+        //     "entry": "easyHarvest",
+        //     "description": "自动一键收菜"
+        // },
+        // {
+        //     "name": "一键探险",
+        //     "entry": "easyAdventure",
+        //     "description": "自动一键探险",
+        //     "option": [
+        //         "探险时间",
+        //         "探险属性"
+        //     ],
+        //     "pipeline_override": {}
+        // }
     ],
     "option": {
-        "探险时间": {
-            "type": "select",
+        "极品特招": {
+            "type": "checkbox",
+            "label": "极品特招",
+            "description": "是否进行极品特招",
+            "default_case": ["是"],
             "cases": [
                 {
-                    "name": "4小时",
+                    "name": "是",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "4小时"
-                        }
-                    }
-                },
-                {
-                    "name": "8小时",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "8小时"
-                        }
-                    }
-                },
-                {
-                    "name": "12小时",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "12小时"
+                        "specialTravel": {
+                            "enabled": true
                         }
                     }
                 }
             ]
         },
-        "探险属性": {
+        "特招属性": {
             "type": "select",
             "cases": [
                 {
                     "name": "金",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "金"
+                        "jin": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "木",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "木"
+                        "mu": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "水",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "水"
+                        "shui": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "火",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "火"
+                        "huo": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "土",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "土"
+                        "tu": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "雷",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "雷"
+                        "lei": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "邪",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "邪"
+                        "xie": {
+                            "enabled": true
                         }
                     }
                 },
                 {
                     "name": "体",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "体"
+                        "ti": {
+                            "enabled": true
                         }
                     }
                 }
             ]
         }
+        // "执行次数": {
+        //     "type": "select",
+        //     "label": "执行次数",
+        //     "description": "选择执行次数",
+        //     "default_case": ["体力上限"],
+        //     "cases": [
+        //         {
+        //             "name": "1次",
+        //             "pipeline_override": {
+        //                 "execution_count": {
+        //                     "enabled": true
+        //                 }
+        //             }
+        //         },
+        //         {
+        //             "name": "2次",
+        //             "pipeline_override": {
+        //                 "execution_count": {
+        //                     "enabled": true
+        //                 }
+        //             }
+        //         },
+        //         {
+        //             "name": "3次",
+        //             "pipeline_override": {
+        //                 "execution_count": {
+        //                     "enabled": true
+        //                 }
+        //             }
+        //         },
+        //         {
+        //             "name": "体力上限",
+        //             "pipeline_override": {
+        //                 "execution_count": {
+        //                     "enabled": true
+        //                 }
+        //             }
+        //         }
+        //     ]
+        // }
+        //     "探险时间": {
+        //         "type": "select",
+        //         "cases": [
+        //             {
+        //                 "name": "4小时",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "4小时"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "8小时",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "8小时"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "12小时",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "12小时"
+        //                     }
+        //                 }
+        //             }
+        //         ]
+        //     },
+        //     "探险属性": {
+        //         "type": "select",
+        //         "cases": [
+        //             {
+        //                 "name": "金",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "金"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "木",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "木"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "水",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "水"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "火",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "火"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "土",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "土"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "雷",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "雷"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "邪",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "邪"
+        //                     }
+        //                 }
+        //             },
+        //             {
+        //                 "name": "体",
+        //                 "pipeline_override": {
+        //                     "OcrTask": {
+        //                         "text": "体"
+        //                     }
+        //                 }
+        //             }
+        //         ]
+        //     }
     }
 }

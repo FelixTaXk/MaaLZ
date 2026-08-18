@@ -1,0 +1,506 @@
+{
+    "$__mpe_config_easyTravel": {
+        "$__mpe_code": {
+            "coordinateMode": "absolute-v1",
+            "filePath": "E:\\MaaLZ\\assets\\resource\\pipeline\\easyTravel.json",
+            "filename": "easyTravel",
+            "isDeleted": true,
+            "lastSyncTime": 1787034441428,
+            "prefix": "",
+            "savedViewport": {
+                "x": -1721,
+                "y": 486,
+                "zoom": 0.8
+            },
+            "version": "v1.7.6"
+        }
+    },
+    "Traveling": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2138,
+                "y": -247
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "easyTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/traveling.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "checkBox": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2920,
+                "y": -432
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "checkBox-finish"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/checkBox.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "checkBox-finish": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3168,
+                "y": -418
+            }
+        },
+        "next": [
+            "startEasyTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/checkBox-fininsh.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "checkSpacialTravelBox": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2884,
+                "y": 238
+            }
+        },
+        "next": [
+            "jin",
+            "mu",
+            "shui",
+            "huo",
+            "tu",
+            "lei",
+            "xie",
+            "ti"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/specialTravelBoxConfirm.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "commonTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2391,
+                "y": 6
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "easyTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/startTravel.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "confirmSpecialTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2637,
+                "y": 236
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "checkSpacialTravelBox"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/specialTravelBox.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "easyTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2395,
+                "y": -243
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "travelTips",
+            "emptyClose"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/easyTravel.png",
+                    "easyTravel/easyTravel2.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "emptyClose": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3666,
+                "y": -240
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "finishTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/emptyClose.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "finishTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3911,
+                "y": -228
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/finishTravel.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "huo": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3142,
+                "y": 828
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "huo.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "jin": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3144,
+                "y": -74
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "jin.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "lei": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3401,
+                "y": 229
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "lei.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "mu": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3147,
+                "y": 221
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "mu.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "shui": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3145,
+                "y": 522
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "shui.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "specialTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2385,
+                "y": 256
+            }
+        },
+        "enabled": false,
+        "next": [
+            "confirmSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/specialTravelCheckBox.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "startEasyTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3413,
+                "y": -423
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "emptyClose"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/confirm.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "startSpecialTravel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3671,
+                "y": 243
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "easyTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/specialStartTravel.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "ti": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3408,
+                "y": 833
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "ti.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "travel": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2137,
+                "y": 6
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "commonTravel",
+            "specialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/travel.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "travelTips": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2657,
+                "y": -430
+            }
+        },
+        "next": [
+            "checkBox"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "easyTravel/travelTips.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "tu": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3401,
+                "y": -72
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "tu.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "xie": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3401,
+                "y": 524
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "enabled": false,
+        "next": [
+            "startSpecialTravel"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "xie.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    }
+}

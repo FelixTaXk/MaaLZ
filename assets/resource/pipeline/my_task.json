@@ -1,7 +1,7 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {},
+    "easyTravel": {},
+    "easyHarvest": {},
+    "easyAdventure": {},
     "MyTask4": {
         "recognition": "Custom",
         "custom_recognition": "my_reco_222",

@@ -1,0 +1,28 @@
+{
+    "$startGame": {
+        "$__mpe_code": {
+            "coordinateMode": "absolute-v1",
+            "filename": "startGame",
+            "prefix": "",
+            "savedViewport": {
+                "x": -1309,
+                "y": 273,
+                "zoom": 1
+            },
+            "version": "v1.7.6"
+        }
+    },
+    "startGame": {
+        "action": {
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "template": [
+                    "游戏图标.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    }
+}

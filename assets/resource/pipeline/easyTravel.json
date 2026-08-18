@@ -5,12 +5,12 @@
             "filePath": "E:\\MaaLZ\\assets\\resource\\pipeline\\easyTravel.json",
             "filename": "easyTravel",
             "isDeleted": true,
-            "lastSyncTime": 1787035885940,
+            "lastSyncTime": 1787041317708,
             "prefix": "",
             "savedViewport": {
-                "x": -1545,
-                "y": 190,
-                "zoom": 0.94
+                "x": -1095,
+                "y": 373,
+                "zoom": 0.93
             },
             "version": "v1.7.6"
         }
@@ -85,10 +85,11 @@
     "checkTravelStatus": {
         "$__mpe_code": {
             "position": {
-                "x": 1849,
-                "y": -79
+                "x": 1822,
+                "y": -142
             }
         },
+        "max_hit": 1,
         "next": [
             "traveling",
             "travel"
@@ -179,6 +180,9 @@
         "action": {
             "type": "Click"
         },
+        "next": [
+            "checkTravelStatus"
+        ],
         "recognition": {
             "param": {
                 "template": [
@@ -186,6 +190,38 @@
                 ]
             },
             "type": "TemplateMatch"
+        }
+    },
+    "getVitality": {
+        "$__mpe_code": {
+            "position": {
+                "x": 1535,
+                "y": -145
+            }
+        },
+        "action": {
+            "param": {
+                "custom_action": "UpdateStageByOcr"
+            },
+            "type": "Custom"
+        },
+        "enabled": false,
+        "next": [
+            "checkTravelStatus"
+        ],
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^\\\\d+$"
+                ],
+                "roi": [
+                    584,
+                    48,
+                    127,
+                    42
+                ]
+            },
+            "type": "OCR"
         }
     },
     "huo": {

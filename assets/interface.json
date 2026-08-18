@@ -11,12 +11,16 @@
     "welcome": "首次使用！欢迎使用 MaaLZ!",
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
-    "version": "1.0.0",
-    "icon": "icon.png",
+    "version": "v0.0.1.5",
+    "icon": "logo.ico",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
     // "mirrorchyan_multiplatform": true,
+    "agent": {
+        "child_exec": "python",
+        "child_args": ["./agent/main.py"]
+    },
     "controller": [
         {
             "name": "安卓端",
@@ -44,8 +48,7 @@
             "description": "自动一键游历",
             "option": [
                 "极品特招",
-                "特招属性"
-                // "执行次数"
+                "执行次数"
             ]
         }
         // {
@@ -78,6 +81,12 @@
                             "enabled": true
                         }
                     }
+                },
+                {
+                    "name": "特招属性",
+                    "option": [
+                        "特招属性"
+                    ]
                 }
             ]
         },
@@ -149,47 +158,49 @@
                     }
                 }
             ]
+        },
+        "执行次数": {
+            "type": "select",
+            "label": "执行次数",
+            "description": "选择执行次数",
+            "default_case": "体力上限",
+            "cases": [
+                {
+                    "name": "游历次数",
+                    "option": [
+                        "游历次数"
+                    ]
+                },
+                {
+                    "name": "体力上限",
+                    "pipeline_override": {
+                        "getVitality": {
+                            "recognition": "DirectHit",
+                            "action": "DoNothing"
+                        }
+                    }
+                }
+            ]
+        },
+        "游历次数": {
+            "type": "input",
+            "label": "游历次数",
+            "description": "输入希望循环执行的次数",
+            "inputs": [
+                {
+                    "name": "次数",
+                    "label": "次数",
+                    "default": "1",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "easyTravel": {
+                    "max_hit": "{次数}"
+                }
+            }
         }
-        // "执行次数": {
-        //     "type": "select",
-        //     "label": "执行次数",
-        //     "description": "选择执行次数",
-        //     "default_case": ["体力上限"],
-        //     "cases": [
-        //         {
-        //             "name": "1次",
-        //             "pipeline_override": {
-        //                 "execution_count": {
-        //                     "enabled": true
-        //                 }
-        //             }
-        //         },
-        //         {
-        //             "name": "2次",
-        //             "pipeline_override": {
-        //                 "execution_count": {
-        //                     "enabled": true
-        //                 }
-        //             }
-        //         },
-        //         {
-        //             "name": "3次",
-        //             "pipeline_override": {
-        //                 "execution_count": {
-        //                     "enabled": true
-        //                 }
-        //             }
-        //         },
-        //         {
-        //             "name": "体力上限",
-        //             "pipeline_override": {
-        //                 "execution_count": {
-        //                     "enabled": true
-        //                 }
-        //             }
-        //         }
-        //     ]
-        // }
         //     "探险时间": {
         //         "type": "select",
         //         "cases": [
